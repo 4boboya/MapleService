@@ -25,4 +25,4 @@ COPY        --from=stage2 ${RUN_PATH} ${RUN_PATH}
 WORKDIR     ${RUN_PATH}
 EXPOSE      23001
 CMD ["go", "run", "main.go", "--host", "0.0.0.0"]
-ENTRYPOINT  ["./app"]
+# ENTRYPOINT  ["./app"]
