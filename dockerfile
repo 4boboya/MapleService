@@ -24,5 +24,5 @@ RUN         apk del tzdata
 COPY        --from=stage2 ${RUN_PATH} ${RUN_PATH}
 WORKDIR     ${RUN_PATH}
 EXPOSE      23001
-CMD         ["-http", "0.0.0.0:23001", "-openbrowser=false"]
+CMD ["flask", "run", "--host", "0.0.0.0"]
 ENTRYPOINT  ["./app"]
