@@ -1,6 +1,7 @@
 FROM golang:1.17.3-alpine3.13
-WORKDIR /app
-ADD . /app
-RUN cd /app && go build
-EXPOSE 8080
-ENTRYPOINT ./app
+RUN         mkdir -p /app
+WORKDIR     /app
+COPY        . .
+RUN         go mod download
+RUN         go build -o app
+ENTRYPOINT  ["./app"]
