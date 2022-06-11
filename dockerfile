@@ -40,4 +40,4 @@ RUN go build -o /app
 
 EXPOSE 23001
 
-CMD [ "/app" ]
+ENTRYPOINT [ "/app" ]
