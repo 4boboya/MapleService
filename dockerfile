@@ -4,5 +4,5 @@ WORKDIR     /app
 COPY        . .
 RUN         go mod download
 RUN         go build -o app
-EXPOSE  8080
+EXPOSE  32001
 ENTRYPOINT  ["./app"]
