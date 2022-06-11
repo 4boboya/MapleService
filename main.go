@@ -22,7 +22,7 @@ func main() {
 		MaxHeaderBytes: 1 << 20,
 	}
 
-	service.SetKeepAlivesEnabled(false)
+	service.SetKeepAlivesEnabled(true)
 
 	log.Fatal(service.ListenAndServe())
 }
