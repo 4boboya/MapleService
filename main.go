@@ -13,7 +13,7 @@ func main() {
 	fmt.Println("start")
 	router := routes.NewRouter()
 
-	srv := &http.Server{
+	service := &http.Server{
 		Handler:        router,
 		Addr:           "0.0.0.0:23001",
 		ReadTimeout:    time.Duration(60) * time.Second,
@@ -22,5 +22,7 @@ func main() {
 		MaxHeaderBytes: 1 << 20,
 	}
 
-	log.Fatal(srv.ListenAndServe())
+	service.SetKeepAlivesEnabled(false)
+
+	log.Fatal(service.ListenAndServe())
 }
