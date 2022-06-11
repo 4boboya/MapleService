@@ -2,9 +2,7 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
-	"time"
 
 	routes "MapleService/control"
 )
@@ -13,13 +11,7 @@ func main() {
 	fmt.Println("start")
 	router := routes.NewRouter()
 
-	srv := &http.Server{
-		Handler:      router,
-		Addr:         ":32001",
-		WriteTimeout: 15 * time.Second,
-		ReadTimeout:  15 * time.Second,
-	}
+	http.ListenAndServe(":23001", router)
 
-	log.Fatal(srv.ListenAndServe())
 	fmt.Println("end")
 }
