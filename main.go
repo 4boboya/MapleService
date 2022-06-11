@@ -18,6 +18,7 @@ func main() {
 		Addr:           "0.0.0.0:23001",
 		ReadTimeout:    60 * time.Second,
 		WriteTimeout:   60 * time.Second,
+		IdleTimeout:    60 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
 
