@@ -23,5 +23,5 @@ RUN         date
 RUN         apk del tzdata
 COPY        --from=stage2 ${RUN_PATH} ${RUN_PATH}
 WORKDIR     ${RUN_PATH}
-EXPOSE      23001
+EXPOSE      80
 ENTRYPOINT  ["./app"]
