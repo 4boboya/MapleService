@@ -12,6 +12,4 @@ func main() {
 	router := routes.NewRouter()
 
 	http.ListenAndServe("0.0.0.0:23001", router)
-
-	fmt.Println("end")
 }
