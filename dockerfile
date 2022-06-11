@@ -5,6 +5,6 @@ ENV         GO111MODULE=on
 COPY        . /app
 RUN         go mod download
 RUN         go build -o app.exe
-EXPOSE 32001
+EXPOSE 23001
 
 ENTRYPOINT  ["./app.exe"]
