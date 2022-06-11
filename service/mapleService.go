@@ -9,17 +9,10 @@ import (
 	provider "MapleService/provider"
 )
 
-type Todo struct {
-	Id   int64
-	Item string
-}
-
 type ApiResponse struct {
 	ResultCode    string
 	ResultMessage interface{}
 }
-
-var TodoList []Todo
 
 func Test(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
