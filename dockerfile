@@ -38,6 +38,6 @@ COPY . ./
 
 RUN go build -o /app
 
-EXPOSE 8080
+EXPOSE 23001
 
 CMD [ "/app" ]
