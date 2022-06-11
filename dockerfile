@@ -7,5 +7,4 @@ RUN         go mod download
 RUN         go build -o app.exe
 EXPOSE 32001
 
-RUN chmod +x app
 ENTRYPOINT  ["./app.exe"]
