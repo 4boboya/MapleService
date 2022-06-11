@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"time"
 
@@ -16,13 +15,12 @@ func main() {
 	service := &http.Server{
 		Handler:        router,
 		Addr:           "0.0.0.0:23001",
-		ReadTimeout:    time.Duration(60) * time.Second,
-		WriteTimeout:   time.Duration(60) * time.Second,
-		IdleTimeout:    time.Duration(60) * time.Second,
+		ReadTimeout:    60 * time.Second,
+		WriteTimeout:   60 * time.Second,
+		IdleTimeout:    60 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
 
-	service.SetKeepAlivesEnabled(true)
-
-	log.Fatal(service.ListenAndServe())
+	service.ListenAndServe()
+	fmt.Println("end")
 }
