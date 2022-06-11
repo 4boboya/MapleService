@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"net/http"
 	"time"
 
@@ -8,6 +10,7 @@ import (
 )
 
 func main() {
+	fmt.Println("start")
 	router := routes.NewRouter()
 
 	srv := &http.Server{
@@ -17,5 +20,6 @@ func main() {
 		ReadTimeout:  15 * time.Second,
 	}
 
-	srv.ListenAndServe()
+	log.Fatal(srv.ListenAndServe())
+	fmt.Println("end")
 }
