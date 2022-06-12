@@ -14,10 +14,10 @@ type ResponseData struct {
 	Data int
 }
 
-func GetTest(id string) ([]byte, int) {
+func GetTest(id string) []byte {
 	response := ApiResponse{"200", ResponseData{Id: id, Data: 123}}
 
 	responseData, _ := json.Marshal(response)
 
-	return responseData, 200
+	return responseData
 }

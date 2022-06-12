@@ -2,25 +2,19 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 
 	routes "MapleService/control"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	fmt.Println("start")
-	router := routes.NewRouter()
-
-	// service := &http.Server{
-	// 	Handler:        router,
-	// 	Addr:           "0.0.0.0:23001",
-	// 	ReadTimeout:    60 * time.Second,
-	// 	WriteTimeout:   60 * time.Second,
-	// 	IdleTimeout:    60 * time.Second,
-	// 	MaxHeaderBytes: 1 << 20,
-	// }
-
-	// service.ListenAndServe()
-	http.ListenAndServe("0.0.0.0:23001", router)
+	r := gin.Default()               //1. 註冊一個路由器
+	r.RedirectFixedPath = true       //   自動修正url 允許大小寫
+	routes.NewController(r).Router() //2. 建立新的Router
+	r.Run("localhost:23001")         //3. 執行（預設是8080埠）
+	// router := routes.NewRouter()
+	// http.ListenAndServe("0.0.0.0:23001", router)
 	fmt.Println("end")
 }

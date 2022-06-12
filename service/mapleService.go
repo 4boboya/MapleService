@@ -4,7 +4,7 @@ import (
 	"net/http"
 	// "strconv"
 
-	"github.com/gorilla/mux"
+	"github.com/gin-gonic/gin"
 
 	provider "MapleService/provider"
 )
@@ -14,13 +14,17 @@ type ApiResponse struct {
 	ResultMessage interface{}
 }
 
-func Test(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	queryId := vars["id"] //獲取url參數
+func Test(c *gin.Context) {
+	secondParameter := c.Query("second")
+	response := provider.GetTest(secondParameter)
+	// firstDefaultParameter := c.DefaultQuery("first", "預設")
+	c.Data(http.StatusOK, "application/json", response)
+	// vars := mux.Vars(r)
+	// queryId := vars["id"] //獲取url參數
 
-	response, code := provider.GetTest(queryId)
+	// response, code := provider.GetTest(queryId)
 
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(code)
-	w.Write(response)
+	// w.Header().Set("Content-Type", "application/json")
+	// w.WriteHeader(code)
+	// w.Write(response)
 }
