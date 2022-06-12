@@ -23,7 +23,7 @@ RUN     date
 RUN     apk del tzdata
 COPY    --from=stage2 ${RUN_PATH} ${RUN_PATH}
 WORKDIR ${RUN_PATH}
-# EXPOSE  8080
+EXPOSE  23001
 ENTRYPOINT ["./app"]
 
 # 官方版本
