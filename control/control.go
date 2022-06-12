@@ -5,17 +5,16 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/gorilla/mux"
 
 	service "MapleService/service"
 )
 
-type Route struct {
-	Method     string
-	Pattern    string
-	Handler    http.HandlerFunc
-	Middleware mux.MiddlewareFunc
-}
+// type Route struct {
+// 	Method     string
+// 	Pattern    string
+// 	Handler    http.HandlerFunc
+// 	Middleware mux.MiddlewareFunc
+// }
 
 type Controller struct {
 	*gin.Engine
