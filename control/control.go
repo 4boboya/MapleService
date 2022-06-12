@@ -9,13 +9,6 @@ import (
 	service "MapleService/service"
 )
 
-// type Route struct {
-// 	Method     string
-// 	Pattern    string
-// 	Handler    http.HandlerFunc
-// 	Middleware mux.MiddlewareFunc
-// }
-
 type Controller struct {
 	*gin.Engine
 }
@@ -53,38 +46,3 @@ func Param(c *gin.Context) {
 	firstParameter := c.Param("first")
 	c.String(http.StatusOK, "Param = %v\n", firstParameter)
 }
-
-// @Summary Query 範例
-// @Tags Query
-// @version 1.0
-// @Router /query [get]
-// func Test(c *gin.Context) {
-// 	secondParameter := c.Query("second")
-// 	response := ApiResponse{"200", ResponseData{Id: secondParameter, Data: 123}}
-// 	// firstDefaultParameter := c.DefaultQuery("first", "預設")
-// 	responseData, _ := json.Marshal(response)
-// 	c.Data(http.StatusOK, "application/json", responseData)
-// }
-
-// var routes []Route
-
-// func init() {
-// 	registry("GET", "/test/{id}", service.Test, nil)
-// }
-
-// func NewRouter() *mux.Router {
-// 	r := mux.NewRouter()
-// 	for _, route := range routes {
-// 		r.Methods(route.Method).
-// 			Path(route.Pattern).
-// 			Handler(route.Handler)
-// 		if route.Middleware != nil {
-// 			r.Use(route.Middleware)
-// 		}
-// 	}
-// 	return r
-// }
-
-// func registry(method, pattern string, handler http.HandlerFunc, middleware mux.MiddlewareFunc) {
-// 	routes = append(routes, Route{method, pattern, handler, middleware})
-// }
